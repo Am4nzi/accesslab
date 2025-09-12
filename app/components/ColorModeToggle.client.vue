@@ -7,7 +7,7 @@ function setMode(mode: "light" | "dark") {
 </script>
 
 <template>
-  <div class="flex gap-2" role="group" aria-label="Color mode">
+  <div class="flex gap-4" role="group" aria-label="Color mode">
     <ClientOnly>
       <UButton
         :variant="colorMode.value === 'light' ? 'solid' : 'outline'"

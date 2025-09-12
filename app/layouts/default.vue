@@ -12,7 +12,7 @@ const navLinks: NavLink[] = [{ label: "Home", to: "/" }];
     <header class="border-b">
       <!-- mx-[...]: logical property; sets left and right margins in horizontal writing modes to auto -->
       <div
-        class="mx-auto w-full max-w-7xl px-4 py-3 flex items-center justify-between"
+        class="mx-auto w-full max-w-7xl px-4 py-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
       >
         <NuxtLink
           to="/"
@@ -21,8 +21,8 @@ const navLinks: NavLink[] = [{ label: "Home", to: "/" }];
           AccessLab
         </NuxtLink>
 
-        <nav aria-label="Primary navigation">
-          <ul class="flex flex-wrap items-center gap-6">
+        <nav aria-label="Primary navigation" class="w-full sm:w-auto">
+          <ul class="flex flex-wrap items-center gap-4 sm:gap-6">
             <li v-for="link in navLinks" :key="link.to">
               <NuxtLink
                 :to="link.to"
@@ -34,7 +34,7 @@ const navLinks: NavLink[] = [{ label: "Home", to: "/" }];
             </li>
           </ul>
         </nav>
-        <ColorModeToggle />
+        <ColorModeToggle class="mt-2 sm:mt-0" />
       </div>
     </header>
 
