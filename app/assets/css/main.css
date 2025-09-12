@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@layer base {
+  :root {
+    --ui-bg: #f6f5f2;
+    --ui-text: #1c1c1c;
+    --ui-primary: #2680da;
+
+    --theme-transition-duration: 720ms;
+    --theme-transition-easing: ease-in-out;
+  }
+
+  ::view-transition-old(root) {
+    animation: none;
+  }
+
+  ::view-transition-new(root) {
+    animation: theme-fade-in var(--theme-transition-duration)
+      var(--theme-transition-easing);
+  }
+
+  .dark {
+    --ui-bg: #1a1a1a;
+    --ui-text: #e8e8e8;
+    --ui-primary: #66b3ff;
+  }
+
+  a {
+    @apply text-primary underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring;
+  }
+
+  @keyframes theme-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none !important;
+    }
+  }
+
+  html,
+  body {
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+    transition: background-color var(--theme-transition-duration)
+        var(--theme-transition-easing),
+      color var(--theme-transition-duration) var(--theme-transition-easing);
+  }
+  html.theme-transition * {
+    transition: background-color var(--theme-transition-duration)
+        var(--theme-transition-easing),
+      color var(--theme-transition-duration) var(--theme-transition-easing),
+      border-color var(--theme-transition-duration)
+        var(--theme-transition-easing),
+      fill var(--theme-transition-duration) var(--theme-transition-easing),
+      stroke var(--theme-transition-duration) var(--theme-transition-easing);
+  }
+
+  @theme {
+    --font-sans: "Inclusive Sans", sans-serif;
+  }
+}
