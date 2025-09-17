@@ -1,11 +1,4 @@
-<script setup lang="ts">
-interface NavLink {
-  label: string;
-  to: string;
-}
-
-const navLinks: NavLink[] = [{ label: "Home", to: "/" }];
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="min-h-svh flex flex-col">
