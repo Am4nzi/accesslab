@@ -27,14 +27,12 @@ const navLinks: NavLink[] = [{ label: "Home", to: "/" }];
       </div>
     </header>
 
-    <!-- Main (skip-link target) -->
     <main id="content" tabindex="-1" class="flex-1">
       <div class="mx-auto w-full max-w-7xl px-4 py-8">
         <slot></slot>
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="mt-auto border-t">
       <div
         class="mx-auto w-full max-w-7xl px-4 py-6 text-sm flex items-center justify-between"
