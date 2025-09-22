@@ -1,37 +1,66 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { items } = useNavigationMenu();
+</script>
 
 <template>
-  <div class="min-h-svh flex flex-col">
-    <header class="border-b">
-      <!-- mx-[...]: logical property; sets left and right margins in horizontal writing modes to auto -->
-      <div
-        class="mx-auto w-full max-w-7xl px-4 py-3 flex flex-row items-start md:items-center justify-between"
+  <div class="flex min-h-svh flex-col">
+    <header class="relative z-40 border-b">
+      <UContainer
+        class="flex flex-col items-start justify-between gap-4 py-3 md:flex-row md:items-center"
       >
-        <NuxtLink
-          to="/"
-          class="font-semibold text-2xl px-8 py-6 rounded-lg focus:outline-none focus:ring"
+        <!-- mx-[...]: logical property; sets left and right margins in horizontal writing modes to auto -->
+        <div
+          class="header-content mx-auto flex w-full max-w-7xl flex-row items-start justify-between py-3 pr-4 md:items-center"
         >
-          AccessLab
-        </NuxtLink>
+          <NuxtLink
+            to="/"
+            class="logo rounded-lg px-2 text-2xl font-semibold focus:ring focus:outline-none sm:px-4"
+          >
+            AccessLab
+          </NuxtLink>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-          <ColorModeToggle />
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <ColorModeToggle />
+          </div>
         </div>
-      </div>
+      </UContainer>
     </header>
 
-    <main id="content" tabindex="-1" class="flex-1">
-      <div class="mx-auto w-full max-w-7xl px-4 py-8">
-        <slot></slot>
-      </div>
+    <main id="content" class="flex-1">
+      <UContainer class="py-8">
+        <div class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)]">
+          <aside class="self-start md:sticky md:top-24">
+            <!-- TODO: Ensure colour mode toggles work on first paint when nav is open by default -->
+            <UNavigationMenu
+              orientation="vertical"
+              :items="items"
+              class="xs:w-64 w-full"
+              :ui="{
+                link: 'cursor-pointer',
+                linkLeadingIcon: 'size-5',
+                linkLabel: 'text-lg',
+                viewportWrapper:
+                  'absolute inset-x-0 top-full pointer-events-none',
+                viewport: 'pointer-events-auto',
+                content:
+                  'absolute bg-[var(--ui-bg)] w-full border-b [--ui-border:var(--ui-divider)] border-stone-500',
+              }"
+            />
+          </aside>
+          <section class="min-w-0">
+            <NuxtPage />
+          </section>
+        </div>
+      </UContainer>
     </main>
 
     <footer class="mt-auto border-t">
-      <div
-        class="mx-auto w-full max-w-7xl px-4 py-6 text-sm flex items-center justify-between"
-      >
-        <p>AccessLab {{ new Date().getFullYear() }}</p>
-      </div>
+      <UContainer class="text-md flex items-center justify-between py-6">
+        <p>
+          AccessLab
+          {{ new Date().getFullYear() }}
+        </p>
+      </UContainer>
     </footer>
   </div>
 </template>

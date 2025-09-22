@@ -1,14 +1,31 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
+const toast = useToast();
 
-function setMode(mode: "light" | "dark") {
+const setMode = (mode: "light" | "dark") => {
+  if (colorMode.value === mode) {
+    toast.clear();
+    toast.add({
+      title: `${mode === "dark" ? "Dark" : "Light"} mode already active`,
+      icon: mode === "dark" ? "i-lucide-moon" : "i-lucide-sun",
+      close: {
+        size: "xl",
+        class: "[&_svg]:size-9",
+      },
+      ui: {
+        title: "text-lg sm:text-xl",
+      },
+    });
+    return;
+  }
+
   colorMode.preference = mode;
-}
+};
 </script>
 
 <template>
   <div
-    class="flex flex-col md:flex-row gap-4"
+    class="flex flex-col gap-4 md:flex-row"
     role="group"
     aria-label="Color mode"
   >
@@ -16,7 +33,7 @@ function setMode(mode: "light" | "dark") {
       <UButton
         :variant="colorMode.value === 'light' ? 'solid' : 'outline'"
         size="lg"
-        class="cursor-pointer min-w-[180px] min-h-[48px] justify-center rounded-full group"
+        class="group min-h-[48px] min-w-[175px] cursor-pointer justify-center rounded-full"
         :aria-pressed="colorMode.value === 'light'"
         aria-label="Activate light mode"
         icon="i-lucide-sun"
@@ -39,7 +56,7 @@ function setMode(mode: "light" | "dark") {
       <UButton
         :variant="colorMode.value === 'dark' ? 'solid' : 'outline'"
         size="lg"
-        class="cursor-pointer min-w-[180px] min-h-[48px] justify-center rounded-full group"
+        class="group min-h-[48px] min-w-[175px] cursor-pointer justify-center rounded-full"
         :aria-pressed="colorMode.value === 'dark'"
         aria-label="Activate dark mode"
         icon="i-lucide-moon"

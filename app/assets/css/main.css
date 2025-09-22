@@ -1,11 +1,18 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@theme {
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
+
 @layer base {
   :root {
-    --ui-bg: #f6f5f2;
-    --ui-text: #1c1c1c;
     --ui-primary: #2680da;
+    --ui-text: #1c1c1c;
+    --ui-bg: #f6f5f2;
+    --ui-divider: #b1b1b1;
 
     --theme-transition-duration: 720ms;
     --theme-transition-easing: ease-in-out;
@@ -27,7 +34,7 @@
   }
 
   a {
-    @apply text-primary underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring;
+    @apply text-primary underline-offset-2 hover:underline focus-visible:ring focus-visible:outline-none;
   }
 
   @keyframes theme-fade-in {
@@ -50,12 +57,14 @@
   body {
     background-color: var(--ui-bg);
     color: var(--ui-text);
-    transition: background-color var(--theme-transition-duration)
+    transition:
+      background-color var(--theme-transition-duration)
         var(--theme-transition-easing),
       color var(--theme-transition-duration) var(--theme-transition-easing);
   }
   html.theme-transition * {
-    transition: background-color var(--theme-transition-duration)
+    transition:
+      background-color var(--theme-transition-duration)
         var(--theme-transition-easing),
       color var(--theme-transition-duration) var(--theme-transition-easing),
       border-color var(--theme-transition-duration)
