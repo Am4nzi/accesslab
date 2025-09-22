@@ -1,10 +1,8 @@
 <template>
-  <ColorScheme>
-    <UApp>
-      <SkipLink />
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </UApp>
-  </ColorScheme>
+  <UApp>
+    <SkipLink />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>
