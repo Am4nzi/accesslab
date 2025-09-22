@@ -37,7 +37,6 @@ const { items } = useNavigationMenu();
                 link: 'theme-colors-transition',
                 childLink: 'theme-colors-transition',
                 content: 'theme-colors-transition',
-                // keep your existing overrides:
                 linkLeadingIcon: 'size-5',
                 linkLabel: 'text-lg',
                 viewportWrapper:
