@@ -34,14 +34,14 @@ const { items } = useNavigationMenu();
               :items="items"
               class="xs:w-64 w-full"
               :ui="{
-                link: 'theme-colors-transition',
-                childLink: 'theme-colors-transition',
-                content: 'theme-colors-transition',
-                linkLeadingIcon: 'size-5',
+                link: 'cursor-pointer theme-colors-transition',
+                childLink: 'cursor-pointer theme-colors-transition',
                 linkLabel: 'text-lg',
+                linkLeadingIcon: 'size-5',
                 viewportWrapper:
                   'absolute inset-x-0 top-full pointer-events-none',
                 viewport: 'pointer-events-auto',
+                content: 'theme-colors-transition',
               }"
             />
           </aside>

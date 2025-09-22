@@ -2,13 +2,15 @@
 @import "@nuxt/ui";
 
 @theme {
+  --color-accessible-blue: #5700ee;
+
   --breakpoint-xs: 30rem;
   --font-sans: "Inclusive Sans", sans-serif;
 }
 
 @layer base {
   :root {
-    --ui-primary: #2680da;
+    --ui-primary: var(--color-accessible-blue);
     --ui-text: #1c1c1c;
     --ui-bg: #f6f5f2;
     --ui-divider: #b1b1b1;
@@ -18,7 +20,7 @@
   }
 
   html.dark {
-    --ui-primary: #8ab4ff;
+    --ui-primary: #ece7ff;
     --ui-text: #e7e7e7;
     --ui-bg: #0f1115;
     --ui-divider: #2f323a;
