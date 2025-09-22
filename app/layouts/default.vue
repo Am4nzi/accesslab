@@ -29,20 +29,20 @@ const { items } = useNavigationMenu();
       <UContainer class="py-8">
         <div class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)]">
           <aside class="self-start md:sticky md:top-24">
-            <!-- TODO: Ensure colour mode toggles work on first paint when nav is open by default -->
             <UNavigationMenu
               orientation="vertical"
               :items="items"
               class="xs:w-64 w-full"
               :ui="{
-                link: 'cursor-pointer',
+                link: 'theme-colors-transition',
+                childLink: 'theme-colors-transition',
+                content: 'theme-colors-transition',
+                // keep your existing overrides:
                 linkLeadingIcon: 'size-5',
                 linkLabel: 'text-lg',
                 viewportWrapper:
                   'absolute inset-x-0 top-full pointer-events-none',
                 viewport: 'pointer-events-auto',
-                content:
-                  'absolute bg-[var(--ui-bg)] w-full border-b [--ui-border:var(--ui-divider)] border-stone-500',
               }"
             />
           </aside>
