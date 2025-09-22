@@ -18,7 +18,6 @@ const { items } = useNavigationMenu();
           >
             AccessLab
           </NuxtLink>
-
           <div class="flex flex-col gap-4 sm:flex-row">
             <ColorModeToggle />
           </div>
