@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <Heading>Modal/Dialog</Heading>
 </template>
 
 <script setup lang="ts"></script>

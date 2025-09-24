@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Accordion</h1>
+    <Heading>Accordion</Heading>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <Heading>Tooltip</Heading>
 </template>
 
 <script setup lang="ts"></script>

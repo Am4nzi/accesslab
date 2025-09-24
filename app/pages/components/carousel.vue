@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <Heading>Carousel</Heading>
 </template>
 
 <script setup lang="ts"></script>

@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <Heading>Menu/Dropdown</Heading>
 </template>
 
 <script setup lang="ts"></script>
