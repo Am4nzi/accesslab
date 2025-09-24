@@ -3,6 +3,7 @@
 
 @theme {
   --color-accessible-blue: #5700ee;
+  --color-light-bg: #f6f5f2;
 
   --breakpoint-xs: 30rem;
   --font-sans: "Inclusive Sans", sans-serif;
@@ -12,7 +13,7 @@
   :root {
     --ui-primary: var(--color-accessible-blue);
     --ui-text: #1c1c1c;
-    --ui-bg: #f6f5f2;
+    --ui-bg: var(--color-light-bg);
     --ui-divider: #b1b1b1;
 
     --theme-transition-duration: 750ms;
@@ -55,5 +56,51 @@
 
   a {
     @apply text-primary underline-offset-2 hover:underline focus-visible:ring focus-visible:outline-none;
+  }
+}
+
+@layer utilities {
+  .native-sandbox-outer {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color-scheme: light !important;
+    background-color: Canvas !important;
+  }
+
+  .native-sandbox,
+  .native-sandbox *,
+  .native-sandbox *::before,
+  .native-sandbox *::after {
+    all: revert !important;
+  }
+
+  .native-sandbox {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 268px !important;
+    color-scheme: light !important;
+    background-color: Canvas !important;
+    color: CanvasText !important;
+    font: menu;
+    -webkit-font-smoothing: auto;
+  }
+
+  .native-sandbox button,
+  .native-sandbox input,
+  .native-sandbox select,
+  .native-sandbox textarea {
+    color-scheme: light !important;
+  }
+
+  .native-sandbox button {
+    appearance: auto !important;
+    -webkit-appearance: button !important;
+    cursor: pointer;
+  }
+
+  .native-sandbox :focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
   }
 }
